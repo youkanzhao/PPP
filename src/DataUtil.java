@@ -38,12 +38,10 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -401,8 +399,8 @@ public class DataUtil {
 		Date d = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 		String excelFilePath = TARGET_DATA_PATH + "data_" + sdf.format(d) + ".xls";
-//		System.out.println(excelFilePath);
 		ExcelUtil.writeExcel(PPP_DATA, excelFilePath);
+		System.out.println("成功写入excel文件，本次抓取的数据总数=" + PPP_DATA.size());
 	}
 
 	private static boolean parseHtml(String html, String cityCode, String cityNmae) {
