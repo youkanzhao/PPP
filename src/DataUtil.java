@@ -292,7 +292,13 @@ public class DataUtil {
 		Collections.sort(PPP_DATA, new Comparator<DataBean>() {
 			@Override
 			public int compare(DataBean b1, DataBean b2) {
-				return b1.getCityCode().compareTo(b2.getCityCode());
+				if(b1.getCityCode() != null && b2.getCityCode() != null) {
+					return b1.getCityCode().compareTo(b2.getCityCode());
+				}
+				else {
+					return -1;
+				}
+				
 			}
 
 		});
